@@ -2,7 +2,7 @@
 
 This is a proof-of-concept application demonstrating how a borrower can connect their payroll account via Truv, verify income and employment status, and accept a loan offer with automatically generated payroll deductions.
 
-Built with ❤️ by [Your Name].
+Built with ❤️
 
 ---
 
@@ -11,8 +11,8 @@ Built with ❤️ by [Your Name].
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/truv-prototype.git
-cd truv-prototype
+git clone https://github.com/YOUR-USERNAME/UnambiguousProjectName.git
+cd UnambiguousProjectName
 ```
 
 ### 2. Install Dependencies
@@ -84,22 +84,9 @@ python app.py
 
 ---
 
-## 🧠 Notes
+##  Notes
 
 - This is a prototype for internal demo and proof-of-concept purposes.
 - For production, session storage should be moved to a persistent database like Redis.
 - Real deduction schedules should align with actual pay dates and employer agreements.
 - Further enhancements: borrower document uploads, real payroll switches, webhook listening.
-
----
-
-## 🤝 Contributions
-
-Pull requests are welcome!  
-Please open an issue first to discuss major changes.
-
----
-
-## 🛡️ License
-
-This project is licensed under the MIT License.
