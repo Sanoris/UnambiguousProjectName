@@ -1,0 +1,14 @@
+# Ignore secrets
+config.py
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment (if any)
+venv/
+.env/
+
+# OS files
+.DS_Store
+Thumbs.db
