@@ -5,7 +5,9 @@ This is a proof-of-concept application demonstrating how a borrower can connect 
 Built with ❤️
 
 ---
-
+##  Just checking out functionality?
+Visit http://24.35.166.241:5123/dashboard - I will be hosting this service until we are no longer in the prototyping phase of the project. 
+---
 ##  Setup Instructions
 
 ### 1. Clone the Repo
