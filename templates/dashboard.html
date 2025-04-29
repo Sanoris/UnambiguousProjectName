@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f7f8fa; padding: 40px; }
+        .container { background: white; padding: 30px; border-radius: 8px; max-width: 900px; margin: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        h1 { text-align: center; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
+        th { background: #4a90e2; color: white; }
+        tr:hover { background-color: #f1f1f1; }
+        ul { list-style: none; padding: 0; }
+        li { margin-top: 20px; }
+        a { color: #4a90e2; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Prototype Navigation</h1>
+
+    <ul>
+        <li><a href="/">Start Borrower Payroll Link (Bridge)</a></li>
+    </ul>
+
+    <h2 style="margin-top: 50px;">Borrower Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>External User ID</th>
+                <th>Gross Income ($/month)</th>
+                <th>Employment Status</th>
+                <th>Passed Sanity?</th>
+                <th>Loan Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in borrower_records %}
+            <tr>
+                <td>{{ record.external_user_id }}</td>
+                <td>{{ record.gross_income }}</td>
+                <td>{{ record.employment_status }}</td>
+                <td>{{ "Yes" if record.sanity_passed else "No" }}</td>
+                <td>{{ record.loan_status }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5">No borrowers yet!</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Income Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f8fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Borrower's Income Report</h1>
+        <pre>{{ report }}</pre>
+        <div class="back-link">
+            <a href="/">← Start Over</a>
+        </div>
+    </div>
+</body>
+</html>

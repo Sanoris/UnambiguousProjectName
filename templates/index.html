@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connect Payroll - Truv Bridge</title>
+    <script src="https://cdn.truv.com/bridge.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f8fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 80px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #357ab8;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Connect Your Payroll Account</h1>
+        <p>To complete your loan verification, please securely connect your payroll provider using the button below.</p>
+        <button onclick="openBridge()">Connect Securely</button>
+    </div>
+
+    <footer>
+        Powered by Truv
+    </footer>
+
+<script>
+    const bridge = TruvBridge.init({
+        bridgeToken: "{{ bridge_token }}",
+        onSuccess: function(public_token, metadata) {
+            console.log('Public token received:', public_token);
+            fetch('/exchange', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ public_token: public_token })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success" && data.income_report_url) {
+                    window.location.href = data.income_report_url;
+                } else {
+                    alert('Verification failed. Please try again.');
+                }
+            });
+        },
+        onEvent: function(event_type, payload) {
+            console.log('Event:', event_type, payload);
+        },
+        onClose: function() {
+            console.log('Bridge closed.');
+        }
+    });
+
+    function openBridge() {
+        bridge.open();
+    }
+</script>
+</body>
+</html>

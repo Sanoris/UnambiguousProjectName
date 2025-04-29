@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Offer</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f7f8fa; padding: 40px; }
+        .container { background: white; padding: 30px; border-radius: 8px; max-width: 600px; margin: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        h1 { text-align: center; }
+        label, input, select { display: block; margin-top: 15px; width: 100%; }
+        button { margin-top: 20px; width: 100%; padding: 14px; background: #4a90e2; border: none; color: white; font-size: 16px; border-radius: 6px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Loan Offer</h1>
+    <p>Based on your income of <strong>${{ gross_income }}</strong> per month, you're pre-qualified!</p>
+    <form action="/accept_loan" method="post">
+        <label>Loan Amount ($)</label>
+        <input type="number" name="loan_amount" required>
+
+        <label>Repayment Term (Months)</label>
+        <select name="repayment_months" required>
+            <option value="6">6 Months</option>
+            <option value="12">12 Months</option>
+        </select>
+
+        <button type="submit">Accept Loan</button>
+    </form>
+</div>
+</body>
+</html>
