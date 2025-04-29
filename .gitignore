@@ -1,5 +1,7 @@
 # Ignore secrets
 config.py
+truvIntegration.py
+truv_client.py
 
 # Python cache
 __pycache__/
