@@ -123,7 +123,8 @@ def exchange_token():
         "gross_income": gross_income,
         "employment_status": employment_status,
         "sanity_passed": passed,
-        "loan_status": "Pending"
+        "loan_status": "Pending",
+        "report_id": report_id   # <-- Save it!
     })
 
     # Redirect based on sanity check
@@ -164,18 +165,17 @@ def accept_loan():
                            repayment_months=repayment_months,
                            deduction_per_month=deduction_per_month)
 
-@app.route("/income_report", methods=["GET"])
-def view_income_report():
-    report_id = session.get('report_id')
+@app.route("/dashboard", methods=["GET"])
+def dashboard():
+    return render_template("dashboard.html", borrower_records=borrower_records)
+
+@app.route("/income_report/<report_id>", methods=["GET"])
+def view_income_report(report_id):
     if not report_id or report_id not in income_reports:
         return "No income report found.", 404
 
     report_data = income_reports[report_id]
     return render_template("income_report.html", report=json.dumps(report_data, indent=4))
-
-@app.route("/dashboard", methods=["GET"])
-def dashboard():
-    return render_template("dashboard.html", borrower_records=borrower_records)
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True, use_reloader=False)

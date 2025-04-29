@@ -34,6 +34,7 @@
                 <th>Employment Status</th>
                 <th>Passed Sanity?</th>
                 <th>Loan Status</th>
+                <th>Income Report</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +45,13 @@
                 <td>{{ record.employment_status }}</td>
                 <td>{{ "Yes" if record.sanity_passed else "No" }}</td>
                 <td>{{ record.loan_status }}</td>
+                <td>
+                    {% if record.report_id %}
+                        <a href="/income_report/{{ record.report_id }}" target="_blank">View Report</a>
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </td>
             </tr>
             {% else %}
             <tr><td colspan="5">No borrowers yet!</td></tr>
