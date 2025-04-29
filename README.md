@@ -67,7 +67,7 @@ python app.py
 ## 📂 Project Structure
 
 ```
-/truv_app/
+/UnambiguousProjectName/
 ├── app.py             # Main Flask app
 ├── config.py          # Config file (not pushed to GitHub)
 ├── requirements.txt   # Python dependencies
